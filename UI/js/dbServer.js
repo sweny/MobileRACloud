@@ -3,7 +3,7 @@ var app = express();
 
 function sendJson(request, response){
    console.log('User connected');
-   var jsonEx = '{ "cells":[{"Storage": 200.0, "RAM": 300.0, "Bandwidth": 20.0, "Device": 3.0}]}';
+   var jsonEx = '{"cells":[{"Storage": 200.0, "RAM": 300.0, "Bandwidth": 20.0, "Device": 3.0},{"Storage": 100.0, "RAM": 200.0, "Bandwidth": 10.0, "Device": 2.0}]}';
    response.type('application/json');
    response.setHeader(	'Content-Type','application/javascript');
     response.setHeader('Access-Control-Allow-Origin','*');

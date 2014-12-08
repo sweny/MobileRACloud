@@ -229,14 +229,20 @@
 
             console.log("data is  "+data);
             
-            newData = [];
+            newData = new Array();
+            parsedData = JSON.parse(data);
             console.log("before pushing new data is "+newData);
-            for(i in data)
+           /* for(i in data)
             {
                 newData.push([data.Storage, data.RAM, data.Bandwidth, data.Device]);
+            }*/
+
+            for(i = 0; i < parsedData.cells.length; i++)
+            {
+                newData.push([parsedData.cells[i].Storage, parsedData.cells[i].RAM, parsedData.cells[i].Bandwidth,parsedData.cells[i].Device]);
             }
             console.log("after pushing new data is "+newData);
-            var parsedData = JSON.parse(data);
+           
             cells = parsedData.cells;
             console.log("cells array is "+JSON.stringify(cells));
 

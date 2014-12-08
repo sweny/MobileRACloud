@@ -1,0 +1,22 @@
+create database mobilecloud;
+use mobilecloud;
+
+create table serverInfo (ServerId int,RAM int,Storage int,  Location varchar(255));
+
+insert into serverInfo values (1, 100, 10000, '-22.810018,12.0809169');
+insert into serverInfo values (2, 100, 10000, '-83.0316963,-43.6371766');
+insert into serverInfo values (3, 100, 10000,  '-54.5727672,64.2814975');
+insert into serverInfo values (4, 100, 10000,  '7.7222359,80.4857189');
+insert into serverInfo values (5, 100, 10000,  '64.9925348,158.3363832');
+
+select * from serverInfo;
+
+
+create table utilizationInfo (InstanceId int AUTO_INCREMENT, UserId int , ServerId int, RAM int, Storage int, Device varchar(255), Network varchar(255), Location varchar(255), startDate Date, EndDate Date, Primary Key(InstanceId));
+
+create table BillingModule (ServerId int; RAM int; Storage int; Location varchar(255), Device varchar(255), Network varchar(255) );
+
+
+insert into utilizationInfo (UserId, ServerId, RAM, Storage, Device, Network, Location, StartDate) values (?,?,?,?,?,?,?, Sysdate());
+
+insert into utilizationInfo (UserId, ServerId, RAM, Storage, Location, StartDate) values (1,1,20,30,'-2.245160', Sysdate()) Returning instanceId;

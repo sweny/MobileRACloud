@@ -8,7 +8,8 @@
 		"ejs": "~1.0.0",
 		"grunt": "~0.4.5",
 		"util": "*",
-		"moment": "*"
+		"moment": "*",
+		"amqplib": "*"
 
 	}
 }

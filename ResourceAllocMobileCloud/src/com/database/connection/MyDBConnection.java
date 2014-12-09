@@ -15,7 +15,7 @@ public class MyDBConnection {
 		if(connection == null) {
 			//synchronized (connection) {
 				if(connection == null){
-					String URL = "jdbc:mysql://localhost:3306/mobilecloud";
+					String URL = "jdbc:mysql://localhost:3305/mobilecloud";
 					String USER = "root";
 					String PASS = "root";
 

@@ -2,14 +2,15 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="F:/Eclipse/Jars/json-simple-1.1.1.jar/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="F:/Eclipse/Jars/java-json.jar/java-json.jar"/>
-	<classpathentry kind="lib" path="F:/Sem-3/281/projects/MobileCloudComputing-master/rabbitmq-java-client-bin-3.4.2/rabbitmq-java-client-bin-3.4.2/commons-cli-1.1.jar"/>
-	<classpathentry kind="lib" path="F:/Sem-3/281/projects/MobileCloudComputing-master/rabbitmq-java-client-bin-3.4.2/rabbitmq-java-client-bin-3.4.2/commons-io-1.2.jar"/>
-	<classpathentry kind="lib" path="F:/Sem-3/281/projects/MobileCloudComputing-master/rabbitmq-java-client-bin-3.4.2/rabbitmq-java-client-bin-3.4.2/junit.jar"/>
-	<classpathentry kind="lib" path="F:/Sem-3/281/projects/MobileCloudComputing-master/rabbitmq-java-client-bin-3.4.2/rabbitmq-java-client-bin-3.4.2/rabbitmq-client.jar"/>
-	<classpathentry kind="lib" path="F:/Sem-3/281/projects/MobileCloudComputing-master/rabbitmq-java-client-bin-3.4.2/rabbitmq-java-client-bin-3.4.2/rabbitmq-client-tests.jar"/>
-	<classpathentry kind="lib" path="F:/Eclipse/Jars/aws-java-sdk.jar/aws-java-sdk.jar"/>
-	<classpathentry kind="lib" path="F:/Eclipse/Jars/mysql-connector-java-5.0.8/mysql-connector-java-5.0.8/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nikita/Documents/GitHub/MobileRACloud/Jars/mysql-connector-java-5.1.18-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nikita/Documents/GitHub/MobileRACloud/Jars/aws-java-sdk.jar/aws-java-sdk.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nikita/Documents/GitHub/MobileRACloud/Jars/java-json.jar/java-json.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nikita/Documents/GitHub/MobileRACloud/Jars/json-simple-1.1.1.jar/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nikita/Documents/GitHub/MobileRACloud/Jars/rabbitmq-client.jar/rabbitmq-client.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse-workspace/cmpe-281-homework1/Ant_Colony/lib/colt.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nikita/Documents/GitHub/MobileRACloud/Jars/commons-cli-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nikita/Documents/GitHub/MobileRACloud/Jars/commons-io-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nikita/Documents/GitHub/MobileRACloud/Jars/junit.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nikita/Documents/GitHub/MobileRACloud/Jars/rabbitmq-client-tests.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

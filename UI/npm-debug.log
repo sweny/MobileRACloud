@@ -5,16 +5,81 @@
 2 info using npm@1.4.28
 3 info using node@v0.10.32
 4 verbose node symlink C:\Program Files\nodejs\\node.exe
-5 error install Couldn't read dependencies
-6 error package.json ENOENT, open 'N:\PC backup 17th april 2014\C drive my files\Nikita PC Backup 16th jan 2014\OS(C) Drive backup\Nikita_PC Data\sjsu\Fall 2014\CMPE 281 Cloud Computing\project\startbootstrap-sb-admin-1.0.0\package.json'
-6 error package.json This is most likely not a problem with npm itself.
-6 error package.json npm can't find a package.json file in your current directory.
-7 error System Windows_NT 6.2.9200
-8 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
-9 error cwd N:\PC backup 17th april 2014\C drive my files\Nikita PC Backup 16th jan 2014\OS(C) Drive backup\Nikita_PC Data\sjsu\Fall 2014\CMPE 281 Cloud Computing\project\startbootstrap-sb-admin-1.0.0
-10 error node -v v0.10.32
-11 error npm -v 1.4.28
-12 error path N:\PC backup 17th april 2014\C drive my files\Nikita PC Backup 16th jan 2014\OS(C) Drive backup\Nikita_PC Data\sjsu\Fall 2014\CMPE 281 Cloud Computing\project\startbootstrap-sb-admin-1.0.0\package.json
-13 error code ENOPACKAGEJSON
-14 error errno 34
-15 verbose exit [ 34, true ]
+5 warn package.json cmpe297-assignment-4@1.0.0 No repository field.
+6 verbose readDependencies using package.json deps
+7 verbose install where, deps [ 'C:\\Users\\Nikita\\Documents\\GitHub\\MobileRACloud\\UI',
+7 verbose install   [ 'express', 'mysql', 'ejs', 'grunt', 'util', 'moment', 'amqplib' ] ]
+8 info preinstall cmpe297-assignment-4@1.0.0
+9 warn package.json util@0.10.3 util is also the name of a node core module.
+10 verbose readDependencies using package.json deps
+11 verbose already installed skipping express@~4.0.0 C:\Users\Nikita\Documents\GitHub\MobileRACloud\UI
+12 verbose already installed skipping mysql@* C:\Users\Nikita\Documents\GitHub\MobileRACloud\UI
+13 verbose already installed skipping ejs@~1.0.0 C:\Users\Nikita\Documents\GitHub\MobileRACloud\UI
+14 verbose already installed skipping grunt@~0.4.5 C:\Users\Nikita\Documents\GitHub\MobileRACloud\UI
+15 verbose already installed skipping util@* C:\Users\Nikita\Documents\GitHub\MobileRACloud\UI
+16 verbose already installed skipping moment@* C:\Users\Nikita\Documents\GitHub\MobileRACloud\UI
+17 verbose cache add [ 'amqplib@*', null ]
+18 verbose cache add name=undefined spec="amqplib@*" args=["amqplib@*",null]
+19 verbose parsed url { protocol: null,
+19 verbose parsed url   slashes: null,
+19 verbose parsed url   auth: null,
+19 verbose parsed url   host: null,
+19 verbose parsed url   port: null,
+19 verbose parsed url   hostname: null,
+19 verbose parsed url   hash: null,
+19 verbose parsed url   search: null,
+19 verbose parsed url   query: null,
+19 verbose parsed url   pathname: 'amqplib@*',
+19 verbose parsed url   path: 'amqplib@*',
+19 verbose parsed url   href: 'amqplib@*' }
+20 verbose cache add name="amqplib" spec="*" args=["amqplib","*"]
+21 verbose parsed url { protocol: null,
+21 verbose parsed url   slashes: null,
+21 verbose parsed url   auth: null,
+21 verbose parsed url   host: null,
+21 verbose parsed url   port: null,
+21 verbose parsed url   hostname: null,
+21 verbose parsed url   hash: null,
+21 verbose parsed url   search: null,
+21 verbose parsed url   query: null,
+21 verbose parsed url   pathname: '*',
+21 verbose parsed url   path: '*',
+21 verbose parsed url   href: '*' }
+22 verbose addNamed [ 'amqplib', '*' ]
+23 verbose addNamed [ null, '*' ]
+24 silly lockFile 9d7c67cd-amqplib amqplib@*
+25 verbose lock amqplib@* C:\Users\Nikita\AppData\Roaming\npm-cache\9d7c67cd-amqplib.lock
+26 silly addNameRange { name: 'amqplib', range: '*', hasData: false }
+27 verbose request where is /amqplib
+28 verbose request registry https://registry.npmjs.org/
+29 verbose request id 4f41c98360318a10
+30 verbose url raw /amqplib
+31 verbose url resolving [ 'https://registry.npmjs.org/', './amqplib' ]
+32 verbose url resolved https://registry.npmjs.org/amqplib
+33 verbose request where is https://registry.npmjs.org/amqplib
+34 info trying registry request attempt 1 at 00:52:56
+35 http GET https://registry.npmjs.org/amqplib
+36 info retry will retry, error on last attempt: Error: connect ETIMEDOUT
+37 info trying registry request attempt 2 at 00:53:27
+38 http GET https://registry.npmjs.org/amqplib
+39 info retry will retry, error on last attempt: Error: connect ETIMEDOUT
+40 info trying registry request attempt 3 at 01:17:28
+41 http GET https://registry.npmjs.org/amqplib
+42 silly lockFile 9d7c67cd-amqplib amqplib@*
+43 silly lockFile 9d7c67cd-amqplib amqplib@*
+44 error network getaddrinfo ENOTFOUND
+44 error network This is most likely not a problem with npm itself
+44 error network and is related to network connectivity.
+44 error network In most cases you are behind a proxy or have bad network settings.
+44 error network
+44 error network If you are behind a proxy, please make sure that the
+44 error network 'proxy' config is set properly.  See: 'npm help config'
+45 error System Windows_NT 6.2.9200
+46 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+47 error cwd C:\Users\Nikita\Documents\GitHub\MobileRACloud\UI
+48 error node -v v0.10.32
+49 error npm -v 1.4.28
+50 error syscall getaddrinfo
+51 error code ENOTFOUND
+52 error errno ENOTFOUND
+53 verbose exit [ 1, true ]

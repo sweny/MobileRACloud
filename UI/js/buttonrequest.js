@@ -9,15 +9,15 @@ function sendToServer(){
 	console.log("in store data func");
 	userResources = {
 
-		storage : s1.options[s1.selectedIndex].value,
+		Storage : s1.options[s1.selectedIndex].value,
 
-		memory : m1.options[m1.selectedIndex].value,
+		RAM : m1.options[m1.selectedIndex].value,
 
 		Device : d1.options[d1.selectedIndex].value,
 
-		network : n1.options[n1.selectedIndex].value,
+		Network : n1.options[n1.selectedIndex].value,
 
-		UserId : 1,
+		UserId : '1',
 
 		location : '-24.2059569,-40.3127728' 
 
@@ -38,7 +38,7 @@ function handleButtonRequest(e){
 		httpRequest.onreadystatechange = handleResponse;
 		httpRequest.open("POST", "http://localhost:8081/requestHandler.js",true);
 		httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		httpRequest.send(JSON.stringify(userResources));
+		httpRequest.send(JSON.stringify({request:userResources}));
 		console.log("in handle req try func");
 	}
 	catch(err)

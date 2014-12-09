@@ -78,8 +78,23 @@ http.createServer(function (request, response) {
         var requestmsg = "userId = "+userId+"location = "+location+" memory = "+memory+" storage = "+storage+" CPU = "+CPU;
 		console.log("Request received: " +requestmsg);
 		rabbitSending(JSON.stringify(objDet));
-		rabbitReceiving()
-		console.log('successfully added to queue');		
+		var theFinalResponse =  function rabbitReceiving(err,theFinalResponse) {
+		amqp.connect('amqp://localhost').then(function (conn) {
+			process.once('SIGINT', function () {
+				conn.close();
+			});
+			return conn.createChannel().then(function (ch) {
+
+				var ok = ch.assertQueue('281rabbitResponse', {durable: false});
+
+				ok = ok.then(function (_qok) {
+					return ch.consume('281rabbitResponse', function (msg) {
+						console.log(" [x] Received '%s'", msg.content.toString());
+						if (msg.content.toString() != null) {
+							if (conn) conn.close(function () {
+								theFinalResponse = msg.content.toString();
+								console.log("successfully got response but still in function: "+theFinalResponse);
+								console.log('successfully added to queue');		
         // rabbit code
 		response.writeHead(200, {
 			'Content-Type': 'text/plain',
@@ -88,8 +103,22 @@ http.createServer(function (request, response) {
 		});
 		//Note here we are listening to port 8081 while client runs on port 8080, hence in order to avoid Cross Domain Security Issue CORS is used.
 		//Due to this reason, response header must contain Access-Control-Allow-Origin
+		
 		console.log("successfully got response: "+theFinalResponse);
-		response.end(theFinalResponse);
+		response.end("successfully got response: "+theFinalResponse);
+								process.exit(1);
+							});
+						}
+					}, {noAck: true});
+				});
+
+				return ok.then(function (_consumeOk) {
+					console.log(' [*] Waiting for messages. To exit press CTRL+C');
+				});
+			});
+		}).then(null, console.warn);
+	}
+		
 	});
 			
 }).listen(8081);

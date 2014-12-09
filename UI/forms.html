@@ -10,6 +10,12 @@
     <meta name="author" content="">
 
     <title>Resources</title>
+<style>
+#myDiv{
+    display:none;
+}
+
+</style>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -137,6 +143,10 @@
 </div> </div>
 </form>
 
+<div id = "myDiv" class = "jumbotron">
+<p> Sending request to server<i class="glyphicon glyphicon-forward"></i> Creating instance </p>
+</div>
+
 </div>
 
 
@@ -152,6 +162,10 @@ function refresh()
 {
     window.location.reload();
 }   
+
+$("#btn1").click(function(){
+    $("#myDiv").show();
+})
 </script>
        </body>
 

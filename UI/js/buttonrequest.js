@@ -13,9 +13,13 @@ function sendToServer(){
 
 		memory : m1.options[m1.selectedIndex].value,
 
-		device : d1.options[d1.selectedIndex].value,
+		Device : d1.options[d1.selectedIndex].value,
 
-		network : n1.options[n1.selectedIndex].value
+		network : n1.options[n1.selectedIndex].value,
+
+		UserId : 1,
+
+		location : '-24.2059569,-40.3127728' 
 
 	};
 	console.log("userresources: "+JSON.stringify(userResources));
@@ -32,7 +36,7 @@ function handleButtonRequest(e){
 	{
 		httpRequest = new XMLHttpRequest();
 		httpRequest.onreadystatechange = handleResponse;
-		httpRequest.open("POST", "http://localhost:8888/requestHandler.js",true);
+		httpRequest.open("POST", "http://localhost:8081/requestHandler.js",true);
 		httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		httpRequest.send(JSON.stringify(userResources));
 		console.log("in handle req try func");

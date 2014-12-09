@@ -2,6 +2,8 @@ package com.resourceallocator.locationaware;
 
 import com.database.connection.MyDBConnection;
 import com.database.connection.SQLQueries;
+import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.Channel;
 import com.strategyselection.IDC;
 import com.strategyselection.ResourceAllocatorStrategy;
 
@@ -31,6 +33,8 @@ public class LocationAware implements ResourceAllocatorStrategy {
 	private String reqDevice;
 	private String reqNetwork;
 	private Connection conn;
+	private final static String QUEUE_NAME = "281rabbitResponse";
+	private int theResponse;
 
 	@Override
 	public void runResourceAllocator(String reqMsg) {
@@ -108,6 +112,7 @@ public class LocationAware implements ResourceAllocatorStrategy {
 				ResultSet rs2 = ps2.getGeneratedKeys();
 				if(rs2!=null && rs2.next()){
 					System.out.println("instId"+rs2.getInt(1));
+					theResponse = rs2.getInt(1);
 				}				
 			} else {
 				PreparedStatement ps2 = conn.prepareStatement(SQLQueries.SQL_Update_ServerInfoResource);
@@ -115,6 +120,32 @@ public class LocationAware implements ResourceAllocatorStrategy {
 				System.out.println("Resources auto refilled!");
 			}
 		} catch (SQLException | JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+
+
+		//sending to response rabbit
+		ConnectionFactory factory = new ConnectionFactory();
+		factory.setHost("localhost");
+		com.rabbitmq.client.Connection connection1;
+		try {
+			connection1 = factory.newConnection();
+
+			Channel channel = connection1.createChannel();
+			channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+			//String message = "instance is created!!!!! ";
+
+			org.json.simple.JSONObject obj = new org.json.simple.JSONObject();
+			obj.put("instanceId", ""+theResponse);  
+			//obj.put("age", new Integer(37));
+
+			channel.basicPublish("", QUEUE_NAME, null, obj.toJSONString().getBytes());
+			System.out.println(" [x] Sent '" + obj.toJSONString() + "'");
+			channel.close();
+			connection1.close();
+			//rabbit ends here
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 

@@ -1,6 +1,7 @@
 var http = require('http');
 var amqp = require('amqplib');
 
+var theFinalResponse = "";
 http.createServer(function (request, response) {
 	console.log('request starting...');
 
@@ -11,7 +12,7 @@ http.createServer(function (request, response) {
 
     	amqp.connect('amqp://localhost').then(function(conn) {
             return when(conn.createChannel().then(function(ch) {
-                var queueName = '281rabbitmq';
+                var queueName = '281rabbitmqRequest';
 
                 //should be able to send json objects - TO-DO
                 //var jsonObj = JSON.parse(msg);
@@ -26,6 +27,35 @@ http.createServer(function (request, response) {
             })).ensure(function() { conn.close(); });;
         }).then(null, console.warn);
     }
+
+	function rabbitReceiving() {
+		amqp.connect('amqp://localhost').then(function (conn) {
+			process.once('SIGINT', function () {
+				conn.close();
+			});
+			return conn.createChannel().then(function (ch) {
+
+				var ok = ch.assertQueue('281rabbitResponse', {durable: false});
+
+				ok = ok.then(function (_qok) {
+					return ch.consume('281rabbitResponse', function (msg) {
+						console.log(" [x] Received '%s'", msg.content.toString());
+						if (msg.content.toString() != null) {
+							if (conn) conn.close(function () {
+								theFinalResponse = msg.content.toString();
+								console.log("successfully got response but still in function: "+theFinalResponse);
+								process.exit(1);
+							});
+						}
+					}, {noAck: true});
+				});
+
+				return ok.then(function (_consumeOk) {
+					console.log(' [*] Waiting for messages. To exit press CTRL+C');
+				});
+			});
+		}).then(null, console.warn);
+	}
 
 	request.on('data', function(data) {
 		reqData += data;
@@ -45,9 +75,10 @@ http.createServer(function (request, response) {
 		var memory = JSON.stringify(objDet.memory);
 		var storage = JSON.stringify(objDet.storage);
 		var CPU = JSON.stringify(objDet.Device);
-        var requestmsg = "location = "+location+" memory = "+memory+" storage = "+storage+" CPU = "+CPU;
-		console.log("Request recieved: " +requestmsg);
+        var requestmsg = "userId = "+userId+"location = "+location+" memory = "+memory+" storage = "+storage+" CPU = "+CPU;
+		console.log("Request received: " +requestmsg);
 		rabbitSending(JSON.stringify(objDet));
+		rabbitReceiving()
 		console.log('successfully added to queue');		
         // rabbit code
 		response.writeHead(200, {
@@ -57,7 +88,8 @@ http.createServer(function (request, response) {
 		});
 		//Note here we are listening to port 8081 while client runs on port 8080, hence in order to avoid Cross Domain Security Issue CORS is used.
 		//Due to this reason, response header must contain Access-Control-Allow-Origin
-		response.end("Instance id: 1");
+		console.log("successfully got response: "+theFinalResponse);
+		response.end(theFinalResponse);
 	});
 			
 }).listen(8081);

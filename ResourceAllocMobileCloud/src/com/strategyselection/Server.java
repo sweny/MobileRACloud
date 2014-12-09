@@ -21,7 +21,7 @@ import org.json.simple.parser.ParseException;
 public class Server {
 
 
-	private final static String QUEUE_NAME = "281rabbitmq";
+	private final static String QUEUE_NAME = "281rabbitmqRequest";
 	private static int count = 0;
 
 	public static void runStrategy(String reqMsg){

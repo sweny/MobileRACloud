@@ -25,10 +25,12 @@ http.createServer(function (request,response){
 		console.log("in req.on end func1");
 		try {
 			var dataObj = JSON.parse(formdata);
-			var storage = JSON.stringify(dataObj.storage);
-			var memory = JSON.stringify(dataObj.memory);
-			var device = JSON.stringify(dataObj.device);
-			var network = JSON.stringify(dataObj.network)
+			var storage = JSON.stringify(dataObj.Storage);
+			var memory = JSON.stringify(dataObj.RAM);
+			var device = JSON.stringify(dataObj.Device);
+			var network = JSON.stringify(dataObj.Network);
+			var userID = JSON.stringify(dataObj.UserId);
+			var location = JSON.stringify(dataObj.location);
 
 		}
 		catch(err)
@@ -71,5 +73,5 @@ http.createServer(function (request,response){
 				}
 		});
 	});
-}).listen(8888);
+}).listen(8081);
 console.log("server is listening to port 8888");		

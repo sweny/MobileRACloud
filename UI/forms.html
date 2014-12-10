@@ -15,6 +15,11 @@
     display:none;
 }
 
+/*#myp{
+    font-family: palatino linotype;
+    font-size: 20px;
+}*/
+
 </style>
 
     <!-- Bootstrap Core CSS -->
@@ -91,7 +96,7 @@
                         </div>
                         <!-- /.row -->
                         <h1>Select your resources</h1>
-        <form id = "resources"  action = "js/requestHandler.js"  method = "post" class = "resources" >
+        <form id = "resources"  action = "js/MyreqHandler.js"  method = "post" class = "resources" >
         <div class = "jumbotron">
 <div class = "input-group">
                         <label> Select Storage: 
@@ -144,7 +149,7 @@
 </form>
 
 <div id = "myDiv" class = "jumbotron">
-<p> Sending request to server <i class="glyphicon glyphicon-forward"></i> Creating instance </p>
+<p id = "myp"> Sending request to server <i class="glyphicon glyphicon-forward"></i> Creating instance </p>
 </div>
 
 </div>

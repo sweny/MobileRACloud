@@ -69,17 +69,38 @@ http.createServer(function (request, response) {
 
 	request.on('end', function() {
 
-		var objDet = JSON.parse(reqData);
-		var userId = JSON.stringify(objDet.UserId);
-		var location = JSON.stringify(objDet.location);
-		var memory = JSON.stringify(objDet.memory);
-		var storage = JSON.stringify(objDet.storage);
-		var CPU = JSON.stringify(objDet.Device);
-        var requestmsg = "userId = "+userId+"location = "+location+" memory = "+memory+" storage = "+storage+" CPU = "+CPU;
+		var dataObj = JSON.parse(reqData);
+		var reqMessage = JSON.stringify(dataObj.request);
+		console.log("request "+reqMessage);
+			var storage = JSON.stringify(dataObj.Storage);
+			var memory = JSON.stringify(dataObj.RAM);
+			var device = JSON.stringify(dataObj.Device);
+			var network = JSON.stringify(dataObj.Network);
+			var userID = JSON.stringify(dataObj.UserId);
+			var location = JSON.stringify(dataObj.location);
+        var requestmsg = "userId = "+userID+"location = "+location+" memory = "+memory+" storage = "+storage+" device = "+device;
 		console.log("Request received: " +requestmsg);
-		rabbitSending(JSON.stringify(objDet));
-		var theFinalResponse =  function rabbitReceiving(err,theFinalResponse) {
-		amqp.connect('amqp://localhost').then(function (conn) {
+		//rabbitSending(JSON.stringify(objDet));
+amqp.connect('amqp://localhost').then(function(conn) {
+            return when(conn.createChannel().then(function(ch) {
+                var queueName = '281rabbitmqRequest';
+
+                //should be able to send json objects - TO-DO
+                //var jsonObj = JSON.parse(msg);
+                //console.log(typeof jsonObj);
+                var ok = ch.assertQueue(queueName, {durable: false});
+
+                return ok.then(function(_qok) {
+                    ch.sendToQueue(queueName, new Buffer(JSON.stringify({request :dataObj.request})));
+                    console.log(" [x] Sent '%s'", JSON.stringify({request :dataObj.request}));
+                    return ch.close();
+                });
+            })).ensure(function() { conn.close(); });;
+        }).then(null, console.warn);
+
+
+
+	amqp.connect('amqp://localhost').then(function (conn) {
 			process.once('SIGINT', function () {
 				conn.close();
 			});
@@ -117,8 +138,6 @@ http.createServer(function (request, response) {
 				});
 			});
 		}).then(null, console.warn);
-	}
-		
 	});
 			
 }).listen(8081);

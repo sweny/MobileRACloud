@@ -10,7 +10,8 @@ public class StrategySelect extends Server{
 	private ResourceAllocatorStrategy resourceAllocatorStrategy;
 
 	public void selectStrategy(String reqMsg) {		
-		int randomNum = 0 + (int)(Math.random()*(4));		
+		int randomNum = 0 + (int)(Math.random()*(4));
+		randomNum = 2;
 		switch (randomNum){		
 		case 0: 	resourceAllocatorStrategy = new beeColony();
 					break;

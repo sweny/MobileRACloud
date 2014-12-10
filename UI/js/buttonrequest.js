@@ -36,7 +36,7 @@ function handleButtonRequest(e){
 	{
 		httpRequest = new XMLHttpRequest();
 		httpRequest.onreadystatechange = handleResponse;
-		httpRequest.open("POST", "http://localhost:8081/requestHandler.js",true);
+		httpRequest.open("POST", "http://localhost:8081/MyreqHandler.js",true);
 		httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		httpRequest.send(JSON.stringify({request:userResources}));
 		console.log("in handle req try func");
@@ -52,5 +52,8 @@ function handleResponse(e){
 	if(httpRequest.readyState == 4 && httpRequest.status == 200)
 	{
 		console.log(httpRequest.responseText);
+		var myDiv = document.getElementById("myDiv");
+		myDiv.innerHTML = "<h2>"+httpRequest.responseText+"<h2>";
+		
 	}
 }

@@ -43,8 +43,9 @@ public class LocationAware implements ResourceAllocatorStrategy {
 		ValueComparator bvc =  new ValueComparator(hm);
 		TreeMap<String,Double> sortedByDist = new TreeMap<String,Double>(bvc);
 		try {
-			System.out.println("Inside location aware");
+			System.out.println("Inside location aware"+reqMsg);
 			this.conn = MyDBConnection.getConnection();
+			System.out.println("REqMesg"+reqMsg);
 			JSONObject jObject = new JSONObject(reqMsg);
 			JSONObject data = jObject.getJSONObject("request"); // get data object
 

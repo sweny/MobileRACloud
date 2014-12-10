@@ -28,158 +28,217 @@
     <script src="http://code.highcharts.com/modules/exporting.js"></script>
     <script src="http://code.highcharts.com/highcharts-more.js"></script>
     <script src="http://code.highcharts.com/highcharts-3d.js"></script>
-        
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <![endif]-->
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-  
-    <div id="wrapper">
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Resource Allocation Load Balancing</a>
-            </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="index.html" ><i class="glyphicon glyphicon-home"></i> </a>
+        <div id="wrapper">
 
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Registration</a>
-                    </li>
-                    <li>
-                        <a href="login.html"><i class="fa fa-fw fa-bar-chart-o"></i> Login</a>
-                    </li>
-                    <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> User Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Request Resources</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
-
-        <div id="page-wrapper">
-
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            User Dashboard
-                        </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-table"></i> User Dashboard
-                            </li>
-                        </ol>
-                    </div>
+            <!-- Navigation -->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Resource Allocation Load Balancing</a>
                 </div>
-                <!-- /.row -->
+                <!-- Top Menu Items -->
+                <ul class="nav navbar-right top-nav">
+                    <li class="dropdown">
+                        <a href="index.html" ><i class="glyphicon glyphicon-home"></i> </a>
 
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h2>Billing Table</h2>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover">
-                           <div id="table_div"></div>
-                            </table>
+                        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+                        <div class="collapse navbar-collapse navbar-ex1-collapse">
+                            <ul class="nav navbar-nav side-nav">
+                                <li class="active">
+                                    <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Registration</a>
+                                </li>
+                                <li>
+                                    <a href="login.html"><i class="fa fa-fw fa-bar-chart-o"></i> Login</a>
+                                </li>
+                                <li>
+                                    <a href="tables.html"><i class="fa fa-fw fa-table"></i> User Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Request Resources</a>
+                                </li>
+                            </ul>
                         </div>
-                    </div>
+                        <!-- /.navbar-collapse -->
+                    </nav>
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Chart showing Resources Utilization</h3>
+                    <div id="page-wrapper">
+
+                        <div class="container-fluid">
+
+                            <!-- Page Heading -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h1 class="page-header">
+                                        User Dashboard
+                                    </h1>
+                                    <ol class="breadcrumb">
+                                        <li>
+                                            <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                                        </li>
+                                        <li class="active">
+                                            <i class="fa fa-table"></i> User Dashboard
+                                        </li>
+                                    </ol>
+                                </div>
                             </div>
-                            <div class="panel-body">
-                                <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                            <!-- /.row -->
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h2>Billing Table</h2>
+                                    <div class = <"btn-group btn-group-justified">
+                                       <input type="button"  name = "button" value ="Get My Bill" class="btn btn-default btn-lg" id="btn5" onclick="initialize()">
+                                       <div class="table-responsive">
+                                        <table class="table table-bordered table-hover">
+                                         <div id="table_div"></div>
+                                     </table>
+                                 </div>
+                             </div>
+
+                             <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Chart showing Resources Utilization</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel panel-yellow">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Chart showing Bill for User</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div id="billing" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
                         </div>
+                        <!-- /.container-fluid -->
+
                     </div>
+                    <!-- /#page-wrapper -->
+
                 </div>
+                <!-- /#wrapper -->
 
-                   <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-yellow">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Chart showing Bill for User</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="billing" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- jQuery -->
+                
+        <script type="text/javascript">
 
 
+$.ajax({
+    crossDomain: true,
+    type: 'GET',
+    cache: false,
+    url: 'http://localhost:3000/:1/my_bill',
+    dataType: 'json',
 
-            </div>
-            <!-- /.container-fluid -->
+    success: function (data, textStatus, errorThrown) {
 
-        </div>
-        <!-- /#page-wrapper -->
+        console.log("data is  "+data);
 
-    </div>
-    <!-- /#wrapper -->
+        newData = new Array();
+        parsedData = JSON.parse(data);
+        console.log("before pushing new data is "+newData);
+           /* for(i in data)
+            {
+                newData.push([data.Storage, data.RAM, data.Bandwidth, data.Device]);
+            }*/
 
-    <!-- jQuery -->
-    <script type="text/javascript">
+            for(i = 0; i < parsedData.cells.length; i++)
+            {
+                newData.push([parsedData.cells[i].Storage, parsedData.cells[i].RAM, parsedData.cells[i].Bandwidth,parsedData.cells[i].Device]);
+            }
+            console.log("after pushing new data is "+newData);
 
-        var chart;
+            cells = parsedData.cells;
+            console.log("cells array is "+JSON.stringify(cells));
 
-    google.load("visualization", "1", {packages:["table"]});
-    google.setOnLoadCallback(drawTable);
+            Storage = cells.Storage;
+            RAM = cells.RAM;
+            Bandwidth = cells.Bandwidth;
+            Device = cells.Device;
 
-      function drawTable() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Resource');
-        data.addColumn('number', 'Cost ($)');
-        data.addRows([
-          ['Device',  50],
-          ['RAM',   30],
-          ['Storage', 10],
-          ['Network',   10],
-          ['Total Cost', 100]
-        ]);
+               // chart.series[0].setData(data);
 
-        var table = new google.visualization.Table(document.getElementById('table_div'));
+           },
 
-        table.draw(data, {showRowNumber: true});
-      }
+           error: function (e) {
+            console.log("hadnling error func "+JSON.stringify(e));
+        }
+    });
+
+
+
+                    var chart;
+
+                    function drawTable() {
+                        var data = new google.visualization.DataTable();
+                        data.addColumn('string', 'Resource');
+                        data.addColumn('number', 'Cost ($)');
+                        data.addRows([
+                          ['Device',  50],
+                          ['RAM',   30],
+                          ['Storage', 10],
+                          ['Network',   10],
+                          ['Total Cost', 100]
+                          ]);
+
+                        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+                        table.draw(data, {showRowNumber: true});
+                    }
+
+                    function initialize()
+                    {
+                        $("#btn5").click(function(){
+                           drawTable();
+                       })
+
+                    }
+
+
+
+                    google.setOnLoadCallback(initialize); 
+                    google.load("visualization", "1", {packages:["table"]});
+
 
 
       //chart showing requested resources
       $(function () {
-    $('#container').highcharts({
-        chart: {
-            plotBackgroundColor: null,
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
             plotBorderWidth: 1,//null,
             plotShadow: false
         },
@@ -206,29 +265,29 @@
             type: 'pie',
             name: 'Resources Requested',
             data: [
-                ['Storage', 30.0],
-                ['RAM', 10.0],
-                ['Bandwidth', 10.0]
+            ['Storage', 30.0],
+            ['RAM', 10.0],
+            ['Bandwidth', 10.0]
             ]
         }]
     });
 });
 
 
-    $.ajax({
-        crossDomain: true,
-        type: 'GET',
-        cache: false,
-        url: 'http://localhost:8081/data',
-        dataType: 'json',
+$.ajax({
+    crossDomain: true,
+    type: 'GET',
+    cache: false,
+    url: 'http://localhost:8081/data',
+    dataType: 'json',
 
-        success: function (data, textStatus, errorThrown) {
+    success: function (data, textStatus, errorThrown) {
 
-            console.log("data is  "+data);
-            
-            newData = new Array();
-            parsedData = JSON.parse(data);
-            console.log("before pushing new data is "+newData);
+        console.log("data is  "+data);
+
+        newData = new Array();
+        parsedData = JSON.parse(data);
+        console.log("before pushing new data is "+newData);
            /* for(i in data)
             {
                 newData.push([data.Storage, data.RAM, data.Bandwidth, data.Device]);
@@ -239,26 +298,26 @@
                 newData.push([parsedData.cells[i].Storage, parsedData.cells[i].RAM, parsedData.cells[i].Bandwidth,parsedData.cells[i].Device]);
             }
             console.log("after pushing new data is "+newData);
-           
+
             cells = parsedData.cells;
             console.log("cells array is "+JSON.stringify(cells));
 
-                Storage = cells.Storage;
-                RAM = cells.RAM;
-                Bandwidth = cells.Bandwidth;
-                Device = cells.Device;
+            Storage = cells.Storage;
+            RAM = cells.RAM;
+            Bandwidth = cells.Bandwidth;
+            Device = cells.Device;
 
                // chart.series[0].setData(data);
-                
-        },
 
-        error: function (e) {
+           },
+
+           error: function (e) {
             console.log("hadnling error func "+JSON.stringify(e));
         }
     });
 
 
-    $(function () {
+$(function () {
     $('#billing').highcharts({
         chart: {
             plotBackgroundColor: null,
@@ -287,12 +346,14 @@
         series: [{
             type: 'pie',
             name: 'Bill Amount for Resources',
-            data:[ 
-                ['Storage', 200.0],
-                ['RAM', 300.0],
-                ['Bandwidth', 20.0],
-                ['Device', 3.0]]
-            
+            data: newData
+
+         /*   [ 
+            ['Storage', 200.0],
+            ['RAM', 300.0],
+            ['Bandwidth', 20.0],
+            ['Device', 3.0]]
+            */
         }]
     });
 });
@@ -301,13 +362,13 @@
 
 
 
- 
 
 
-    </script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+</script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
 
 </body>
 

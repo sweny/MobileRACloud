@@ -155,51 +155,6 @@
                 
         <script type="text/javascript">
 
-
-$.ajax({
-    crossDomain: true,
-    type: 'GET',
-    cache: false,
-    url: 'http://localhost:3000/:1/my_bill',
-    dataType: 'json',
-
-    success: function (data, textStatus, errorThrown) {
-
-        console.log("data is  "+data);
-
-        newData = new Array();
-        parsedData = JSON.parse(data);
-        console.log("before pushing new data is "+newData);
-           /* for(i in data)
-            {
-                newData.push([data.Storage, data.RAM, data.Bandwidth, data.Device]);
-            }*/
-
-            for(i = 0; i < parsedData.cells.length; i++)
-            {
-                newData.push([parsedData.cells[i].Storage, parsedData.cells[i].RAM, parsedData.cells[i].Bandwidth,parsedData.cells[i].Device]);
-            }
-            console.log("after pushing new data is "+newData);
-
-            cells = parsedData.cells;
-            console.log("cells array is "+JSON.stringify(cells));
-
-            Storage = cells.Storage;
-            RAM = cells.RAM;
-            Bandwidth = cells.Bandwidth;
-            Device = cells.Device;
-
-               // chart.series[0].setData(data);
-
-           },
-
-           error: function (e) {
-            console.log("hadnling error func "+JSON.stringify(e));
-        }
-    });
-
-
-
                     var chart;
 
                     function drawTable() {
@@ -346,14 +301,12 @@ $(function () {
         series: [{
             type: 'pie',
             name: 'Bill Amount for Resources',
-            data: newData
-
-         /*   [ 
+            data:            [ 
             ['Storage', 200.0],
             ['RAM', 300.0],
             ['Bandwidth', 20.0],
             ['Device', 3.0]]
-            */
+            
         }]
     });
 });
